@@ -1,6 +1,8 @@
 
 # directories (by name)
 
+node_modules/
+
 # directories (by pattern)
 
 # files (by name)
@@ -11,4 +13,5 @@
 *.sbr
 *.scc
 *.swp
+*.tmp
 
