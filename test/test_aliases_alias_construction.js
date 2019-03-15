@@ -13,6 +13,10 @@ describe('clasp.aliases', function() {
 
 			var flag = clasp.aliases.Flag('--verbose', { help: 'Makes the output verbose', extras: null });
 
+			assert.ok(clasp.aliases.isAlias(flag));
+			assert.ok(clasp.aliases.isFlag(flag));
+			assert.ok(!clasp.aliases.isOption(flag));
+
 			assert.equal('--verbose', flag.name);
 			assert.equal('Makes the output verbose', flag.help);
 			assert.ok(Array.isArray(flag.aliases), 'aliases property is not an array');
@@ -23,6 +27,10 @@ describe('clasp.aliases', function() {
 		it('can create a Flag one alias', function() {
 
 			var flag = clasp.aliases.Flag('--verbose', { alias: '-v' });
+
+			assert.ok(clasp.aliases.isAlias(flag));
+			assert.ok(clasp.aliases.isFlag(flag));
+			assert.ok(!clasp.aliases.isOption(flag));
 
 			assert.equal('--verbose', flag.name);
 			assert.equal(null, flag.help);
@@ -39,6 +47,10 @@ describe('clasp.aliases', function() {
 
 			var option = clasp.aliases.Option('--verbose', { help: 'Makes the output verbose', extras: null });
 
+			assert.ok(clasp.aliases.isAlias(option));
+			assert.ok(!clasp.aliases.isFlag(option));
+			assert.ok(clasp.aliases.isOption(option));
+
 			assert.equal('--verbose', option.name);
 			assert.equal('Makes the output verbose', option.help);
 			assert.ok(Array.isArray(option.aliases), 'aliases property is not an array');
@@ -49,6 +61,10 @@ describe('clasp.aliases', function() {
 		it('can create a Option one alias', function() {
 
 			var option = clasp.aliases.Option('--verbose', { alias: '-v' });
+
+			assert.ok(clasp.aliases.isAlias(option));
+			assert.ok(!clasp.aliases.isFlag(option));
+			assert.ok(clasp.aliases.isOption(option));
 
 			assert.equal('--verbose', option.name);
 			assert.equal(null, option.help);
