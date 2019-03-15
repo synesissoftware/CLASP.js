@@ -24,7 +24,7 @@ describe('clasp.aliases', function() {
 			assert.equal(null, flag.extras);
 		});
 
-		it('can create a Flag one alias', function() {
+		it('can create a Flag with one alias', function() {
 
 			var flag = clasp.aliases.Flag('--verbose', { alias: '-v' });
 
@@ -37,6 +37,23 @@ describe('clasp.aliases', function() {
 			assert.ok(Array.isArray(flag.aliases), 'aliases property is not an array');
 			assert.equal(1, flag.aliases.length);
 			assert.equal('-v', flag.aliases[0]);
+			assert.equal(null, flag.extras);
+		});
+
+		it('can create a Flag with two aliases', function() {
+
+			var flag = clasp.aliases.Flag('--verbose', { aliases: [ '-v', '--v' ] });
+
+			assert.ok(clasp.aliases.isAlias(flag));
+			assert.ok(clasp.aliases.isFlag(flag));
+			assert.ok(!clasp.aliases.isOption(flag));
+
+			assert.equal('--verbose', flag.name);
+			assert.equal(null, flag.help);
+			assert.ok(Array.isArray(flag.aliases), 'aliases property is not an array');
+			assert.equal(2, flag.aliases.length);
+			assert.equal('-v', flag.aliases[0]);
+			assert.equal('--v', flag.aliases[1]);
 			assert.equal(null, flag.extras);
 		});
 	});
@@ -58,7 +75,7 @@ describe('clasp.aliases', function() {
 			assert.equal(null, option.extras);
 		});
 
-		it('can create a Option one alias', function() {
+		it('can create a Option with one alias', function() {
 
 			var option = clasp.aliases.Option('--verbose', { alias: '-v' });
 
