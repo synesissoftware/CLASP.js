@@ -385,6 +385,108 @@ describe('clasp.api.parse()', function() {
 
 			assert.equal('value-2', args.values[0]);
 		});
+
+		it('flag alias of option with value', function() {
+
+			var aliases = [
+
+				clasp.aliases.Option('--verbosity'),
+				clasp.aliases.Flag('--verbosity=high', { alias: '-v' }),
+			];
+
+			var argv = [ 'bin/myprog', '-v' ];
+			var args = clasp.api.parse(argv, aliases);
+
+			assert.ok(Array.isArray(args.flags), 'flags property must be an array');
+			assert.equal(0, args.flags.length);
+
+			assert.ok(Array.isArray(args.options), 'options property must be an array');
+			assert.equal(1, args.options.length);
+
+			var option0 = args.options[0];
+
+			assert.ok(clasp.api.isOption(option0));
+			assert.equal(0, option0.given_index);
+			assert.equal('-v', option0.given_name);
+			assert.ok(null !== option0.argument_alias);
+			assert.equal(1, option0.given_hyphens);
+			assert.equal('v', option0.given_label);
+			assert.equal('--verbosity', option0.name);
+			assert.equal('high', option0.value);
+			assert.ok(_isPlainObject(option0.extras));
+
+			assert.ok(Array.isArray(args.values), 'values property must be an array');
+			assert.equal(0, args.values.length);
+		});
+
+		it('alias of option with value', function() {
+
+			var aliases = [
+
+				clasp.aliases.Option('--option', { alias: '-o', default_value: 'default-value' }),
+			];
+
+			var argv = [ 'bin/myprog', '-f1', 'value-1', '-o=', '-o=given-value-1', '--option=given-value-2' ];
+			var args = clasp.api.parse(argv, aliases);
+
+			assert.ok(Array.isArray(args.flags), 'flags property must be an array');
+			assert.equal(1, args.flags.length);
+
+			var flag0 = args.flags[0];
+
+			assert.ok(clasp.api.isFlag(flag0));
+			assert.equal(0, flag0.given_index);
+			assert.equal('-f1', flag0.given_name);
+			assert.strictEqual(null, flag0.argument_alias);
+			assert.equal(1, flag0.given_hyphens);
+			assert.equal('f1', flag0.given_label);
+			assert.equal('-f1', flag0.name);
+			assert.ok(_isPlainObject(flag0.extras));
+
+			assert.ok(Array.isArray(args.options), 'options property must be an array');
+			assert.equal(3, args.options.length);
+
+			var option0 = args.options[0];
+
+			assert.ok(clasp.api.isOption(option0));
+			assert.equal(2, option0.given_index);
+			assert.equal('-o', option0.given_name);
+			assert.ok(null !== option0.argument_alias);
+			assert.equal(1, option0.given_hyphens);
+			assert.equal('o', option0.given_label);
+			assert.equal('--option', option0.name);
+			assert.equal('default-value', option0.value);
+			assert.ok(_isPlainObject(option0.extras));
+
+			var option1 = args.options[1];
+
+			assert.ok(clasp.api.isOption(option1));
+			assert.equal(3, option1.given_index);
+			assert.equal('-o', option1.given_name);
+			assert.ok(null !== option1.argument_alias);
+			assert.equal(1, option1.given_hyphens);
+			assert.equal('o', option1.given_label);
+			assert.equal('--option', option1.name);
+			assert.equal('given-value-1', option1.value);
+			assert.ok(_isPlainObject(option1.extras));
+
+			var option2 = args.options[2];
+
+			assert.ok(clasp.api.isOption(option2));
+			assert.equal(4, option2.given_index);
+			assert.equal('--option', option2.given_name);
+			assert.ok(null !== option2.argument_alias);
+			assert.equal(2, option2.given_hyphens);
+			assert.equal('option', option2.given_label);
+			assert.equal('--option', option2.name);
+			assert.equal('given-value-2', option2.value);
+			assert.ok(_isPlainObject(option2.extras));
+
+			assert.ok(Array.isArray(args.values), 'values property must be an array');
+			assert.equal(1, args.values.length);
+
+			assert.equal('value-1', args.values[0]);
+		});
 	});
 });
 
