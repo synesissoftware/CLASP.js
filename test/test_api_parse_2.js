@@ -351,6 +351,40 @@ describe('clasp.api.parse()', function() {
 			assert.ok(Array.isArray(args.values), 'values property must be an array');
 			assert.equal(0, args.values.length);
 		});
+
+		it('alias of option that has default with attached empty', function() {
+
+			var aliases = [
+
+				clasp.aliases.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
+			];
+
+			var argv = [ 'bin/myprog', '-o=', 'value-2' ];
+			var args = clasp.api.parse(argv, aliases);
+
+			assert.ok(Array.isArray(args.flags), 'flags property must be an array');
+			assert.equal(0, args.flags.length);
+
+			assert.ok(Array.isArray(args.options), 'options property must be an array');
+			assert.equal(1, args.options.length);
+
+			var option0 = args.options[0];
+
+			assert.ok(clasp.api.isOption(option0));
+			assert.equal(0, option0.given_index);
+			assert.equal('-o', option0.given_name);
+			assert.ok(null !== option0.argument_alias);
+			assert.equal(1, option0.given_hyphens);
+			assert.equal('o', option0.given_label);
+			assert.equal('--option', option0.name);
+			assert.equal('def-value-1', option0.value);
+			assert.ok(_isPlainObject(option0.extras));
+
+			assert.ok(Array.isArray(args.values), 'values property must be an array');
+			assert.equal(1, args.values.length);
+
+			assert.equal('value-2', args.values[0]);
+		});
 	});
 });
 
