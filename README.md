@@ -69,3 +69,4 @@ Defect reports, feature requests, and pull requests are welcome on https://githu
 ### License
 
 **CLASP.js** is released under the 3-clause BSD license. See LICENSE for details.
+
