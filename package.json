@@ -10,7 +10,7 @@
     "test": "test"
   },
   "main": "index.js",
-  "name": "clasp",
+  "name": "clasp-js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },

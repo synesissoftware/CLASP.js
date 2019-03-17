@@ -127,6 +127,58 @@ describe('clasp.api.parse()', function() {
 			assert.ok(Array.isArray(args.values), 'values property must be an array');
 			assert.equal(0, args.values.length);
 		});
+
+		it('flags of flags and options combined', function() {
+
+			const option_Verbosity	=	clasp.aliases.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
+			const flag_Chatty = clasp.aliases.Flag('--verbosity=chatty', { alias: '-c' });
+			const flag_Debug = clasp.aliases.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
+
+			var aliases = [
+
+				flag_Debug,
+				option_Verbosity,
+				flag_Chatty,
+
+				clasp.aliases.HELP_FLAG,
+				clasp.aliases.VERSION_FLAG,
+			];
+
+			var argv = [ 'bin/myprog', '-cd' ];
+			var args = clasp.api.parse(argv, aliases);
+
+			assert.ok(Array.isArray(args.flags), 'flags property must be an array');
+			assert.equal(1, args.flags.length);
+
+			var flag0 = args.flags[0];
+
+			assert.ok(clasp.api.isFlag(flag0));
+			assert.equal(0, flag0.given_index);
+			assert.equal('-cd', flag0.given_name);
+			assert.ok(null !== flag0.argument_alias);
+			assert.equal(1, flag0.given_hyphens);
+			assert.equal('cd', flag0.given_label);
+			assert.equal('--debug', flag0.name);
+			assert.ok(_isPlainObject(flag0.extras));
+
+			assert.ok(Array.isArray(args.options), 'options property must be an array');
+			assert.equal(1, args.options.length);
+
+			var option0 = args.options[0];
+
+			assert.ok(clasp.api.isOption(option0));
+			assert.equal(0, option0.given_index);
+			assert.equal('-cd', option0.given_name);
+			assert.ok(null !== option0.argument_alias);
+			assert.equal(1, option0.given_hyphens);
+			assert.equal('cd', option0.given_label);
+			assert.equal('--verbosity', option0.name);
+			assert.equal('chatty', option0.value);
+			assert.ok(_isPlainObject(option0.extras));
+
+			assert.ok(Array.isArray(args.values), 'values property must be an array');
+			assert.equal(0, args.values.length);
+		});
 	});
 });
 
