@@ -63,6 +63,8 @@ Defect reports, feature requests, and pull requests are welcome on https://githu
   * _[Anatomy of a CLI Program written in C++](http://synesis.com.au/publishing/software-anatomies/anatomy-of-a-cli-program-written-in-c++.html)_, Matthew Wilson, [CVu](http://accu.org/index.php/journals/c77/), September 2015;
 
 
+* **[CLASP.Go](https://github.com/synesissoftware/CLASP.Go)**;
+* **[CLASP.NET](https://github.com/synesissoftware/CLASP.NET)**;
 * **[CLASP.Python](https://github.com/synesissoftware/CLASP.Python)**;
 * **[CLASP.Ruby](https://github.com/synesissoftware/CLASP.Ruby)**.
 
