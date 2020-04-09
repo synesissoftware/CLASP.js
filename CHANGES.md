@@ -1,5 +1,9 @@
 # **CLASP.js** Changes
 
+## 0.2.4 - 10th April 2020
+
+* ~ updated dependencies so as to obviate security issue with 'minimist'
+
 ## 0.2.3 - 22nd August 2019
 
 * ~ updated dependencies so as to obviate security issue with 'lodash < 4.17.13'
