@@ -104,8 +104,8 @@ describe('clasp.usage.showUsage()', function() {
 
 		var aliases = [
 
-			clasp.aliases.HELP_FLAG,
-			clasp.aliases.VERSION_FLAG,
+			clasp.specifications.HELP_FLAG,
+			clasp.specifications.VERSION_FLAG,
 		];
 
 		var info_lines = [
@@ -167,10 +167,10 @@ describe('clasp.usage.showUsage()', function() {
 
 		var aliases = [
 
-			clasp.aliases.Flag('--verbose', { alias: '-v', help: 'Makes it verbose' }),
+			clasp.specifications.Flag('--verbose', { alias: '-v', help: 'Makes it verbose' }),
 
-			clasp.aliases.HELP_FLAG,
-			clasp.aliases.VERSION_FLAG,
+			clasp.specifications.HELP_FLAG,
+			clasp.specifications.VERSION_FLAG,
 		];
 
 		var info_lines = [

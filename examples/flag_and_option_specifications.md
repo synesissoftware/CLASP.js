@@ -7,7 +7,7 @@ Example illustrating various kinds of *flag* and *option* aliases, including the
 ## Source
 
 ```javascript
-#!/usr/bin/env node --use_strict
+#! /usr/bin/env node --use_strict
 
 // examples/flag_and_option_specifications.js
 
@@ -26,9 +26,9 @@ const info_lines = [
 	'',
 ];
 
-const flag_Debug = clasp.aliases.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
-const option_Verbosity = clasp.aliases.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
-const flag_Chatty = clasp.aliases.Flag('--verbosity=chatty', { alias: '-c' });
+const flag_Debug = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
+const option_Verbosity = clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
+const flag_Chatty = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
 
 function format_to(stm, fmt, ...args) {
 
@@ -45,14 +45,14 @@ const aliases = [
 	option_Verbosity,
 	flag_Chatty,
 
-	clasp.aliases.HELP_FLAG,
-	clasp.aliases.VERSION_FLAG,
+	clasp.specifications.HELP_FLAG,
+	clasp.specifications.VERSION_FLAG,
 ];
 
 
 var args = clasp.api.parse(process.argv, aliases);
 
-if (args.flagIsSpecified(clasp.aliases.HELP_FLAG)) {
+if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
 	clasp.usage.showUsage(aliases, {
 
