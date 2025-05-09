@@ -1,4 +1,4 @@
-# CLASP.js Example - **show_usage_and_version**
+# CLASP.js Example - **show_usage_and_version** <!-- omit in toc -->
 
 ## Summary
 
@@ -213,3 +213,7 @@ it gives the (same) output:
 verbosity is specified as: chatty
 Debug mode is specified
 ```
+
+
+<!-- ########################### end of file ########################### -->
+

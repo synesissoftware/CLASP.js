@@ -1,4 +1,4 @@
-# CLASP.js Example - **show_usage_and_version**
+# CLASP.js Example - **show_usage_and_version** <!-- omit in toc -->
 
 ## Summary
 
@@ -159,4 +159,6 @@ show_usage_and_version.js: unrecognised flag/option: --unknown=value
 
 with an exit code of 1
 
+
+<!-- ########################### end of file ########################### -->
 
