@@ -1,6 +1,6 @@
 #!/usr/bin/env node --use_strict
 
-// examples/flag_and_option_aliases.js
+// examples/flag_and_option_specifications.js
 
 'use strict';
 

@@ -9,7 +9,7 @@ Example illustrating various kinds of *flag* and *option* aliases, including the
 ```javascript
 #!/usr/bin/env node --use_strict
 
-// examples/flag_and_option_aliases.js
+// examples/flag_and_option_specifications.js
 
 'use strict';
 
@@ -102,13 +102,13 @@ if (null != (unused = args.getFirstUnusedFlagOrOption())) {
 If executed with no arguments
 
 ```
-    node examples/flag_and_option_aliases.js
+    node examples/flag_and_option_specifications.js
 ```
 
 or (in a Unix shell):
 
 ```
-    ./examples/flag_and_option_aliases.js
+    ./examples/flag_and_option_specifications.js
 ```
 
 it gives the output:
@@ -121,17 +121,17 @@ it gives the output:
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js --help
+    node examples/flag_and_option_specifications.js --help
 ```
 
 it gives the output:
 
 ```
 CLASP.js examples
-flag_and_option_aliases.js 0.0.1
+flag_and_option_specifications.js 0.0.1
 Illustrates use of CLASP.js's clasp.show_usage() and clasp.show_version() methods
 
-USAGE: flag_and_option_aliases.js [ ... flags and options ... ]
+USAGE: flag_and_option_specifications.js [ ... flags and options ... ]
 
 flags/options:
 
@@ -159,7 +159,7 @@ flags/options:
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js --debug --verbosity=silent
+    node examples/flag_and_option_specifications.js --debug --verbosity=silent
 ```
 
 it gives the output:
@@ -174,7 +174,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js -v silent -d
+    node examples/flag_and_option_specifications.js -v silent -d
 ```
 
 it gives the (same) output:
@@ -189,7 +189,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js -c -d
+    node examples/flag_and_option_specifications.js -c -d
 ```
 
 it gives the output:
@@ -204,7 +204,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js -dc
+    node examples/flag_and_option_specifications.js -dc
 ```
 
 it gives the (same) output:
