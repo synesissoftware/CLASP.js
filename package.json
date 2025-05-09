@@ -13,9 +13,9 @@
   "main": "index.js",
   "name": "clasp-js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "mocha --reporter spec"
   },
-  "version": "0.2.4",
+  "version": "0.2.5",
   "keywords": [
     "CLASP",
     "CLI",

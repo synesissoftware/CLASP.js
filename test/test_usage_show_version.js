@@ -306,3 +306,6 @@ describe('clasp.usage.showVersion()', function() {
 	});
 });
 
+
+/* ///////////////////////////// end of file //////////////////////////// */
+
