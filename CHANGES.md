@@ -1,6 +1,11 @@
 # **CLASP.js** Changes <!-- omit in toc -->
 
 
+## 0.2.5 - 9th May 2025
+
+* project boilerplate;
+
+
 ## 0.2.4 - 10th April 2020
 
 * ~ updated dependencies so as to obviate security issue with 'minimist'
