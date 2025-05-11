@@ -13,40 +13,45 @@ Example illustrating various kinds of *flag* and *option* aliases, including the
 
 'use strict';
 
+// requires
+
 const clasp = require('clasp-js');
+const util  = require('util');
 
-const util = require('util');
-
-const ProgramVersion = "0.0.1";
-const info_lines = [
-
-	'CLASP.js examples',
-	':version',
-	"Illustrates use of CLASP.js's clasp.show_usage() and clasp.show_version() methods",
-	'',
-];
-
-const flag_Debug = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
-const option_Verbosity = clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
-const flag_Chatty = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
+// helpers
 
 function format_to(stm, fmt, ...args) {
 
-	var s = util.format(fmt, ...args);
+  var s = util.format(fmt, ...args);
 
-	stm.write(s);
+  stm.write(s);
 }
+
+// constants
+
+const ProgramVersion = "0.0.2";
+const info_lines = [
+
+  'CLASP.js examples',
+  ':version',
+  "Illustrates use of CLASP.js's use of flags, options, and aliases",
+  '',
+];
 
 // Specify aliases, parse, and checking standard flags
 
+const flag_Debug        = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
+const option_Verbosity  = clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
+const flag_Chatty       = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
+
 const aliases = [
 
-	flag_Debug,
-	option_Verbosity,
-	flag_Chatty,
+  flag_Debug,
+  option_Verbosity,
+  flag_Chatty,
 
-	clasp.specifications.HELP_FLAG,
-	clasp.specifications.VERSION_FLAG,
+  clasp.specifications.HELP_FLAG,
+  clasp.specifications.VERSION_FLAG,
 ];
 
 
@@ -54,21 +59,21 @@ var args = clasp.api.parse(process.argv, aliases);
 
 if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
-	clasp.usage.showUsage(aliases, {
+  clasp.usage.showUsage(aliases, {
 
-		version: ProgramVersion,
-		info_lines: info_lines,
-		exit_code: 0,
-	});
+    version: ProgramVersion,
+    info_lines: info_lines,
+    exit_code: 0,
+  });
 }
 
 if (args.flagIsSpecified('--version')) {
 
-	clasp.usage.showVersion({
+  clasp.usage.showVersion({
 
-		version: ProgramVersion,
-		exit_code: 0,
-	});
+    version: ProgramVersion,
+    exit_code: 0,
+  });
 }
 
 // Program-specific processing of flags/options
@@ -76,12 +81,12 @@ if (args.flagIsSpecified('--version')) {
 var opt = null;
 if (null != (opt = args.lookupOption('--verbosity'))) {
 
-	format_to(process.stdout, "verbosity is specified as: %s\n", opt.value);
+  format_to(process.stdout, "verbosity is specified as: %s\n", opt.value);
 }
 
 if (args.flagIsSpecified('--debug')) {
 
-	format_to(process.stdout, "Debug mode is specified\n");
+  format_to(process.stdout, "Debug mode is specified\n");
 }
 
 // Check for any unrecognised flags or options
@@ -89,9 +94,9 @@ if (args.flagIsSpecified('--debug')) {
 var unused = null;
 if (null != (unused = args.getFirstUnusedFlagOrOption())) {
 
-	format_to(process.stderr, "%s: unrecognised flag/option: %s\n", args.program_name, unused.name);
+  format_to(process.stderr, "%s: unrecognised flag/option: %s\n", args.program_name, unused.name);
 
-	process.exit(1)
+  process.exit(1)
 }
 ```
 
@@ -135,23 +140,23 @@ USAGE: flag_and_option_specifications.js [ ... flags and options ... ]
 
 flags/options:
 
-	-d
-	--debug
-		runs in Debug mode
+  -d
+  --debug
+    runs in Debug mode
 
-	-v <value>
-	--verbosity=<value>
-		specifies the verbosity
+  -v <value>
+  --verbosity=<value>
+    specifies the verbosity
 
-	-c
-	--verbosity=chatty
-		null
+  -c
+  --verbosity=chatty
+    null
 
-	--help
-		Shows usage and terminates
+  --help
+    Shows usage and terminates
 
-	--version
-		Shows version and terminates
+  --version
+    Shows version and terminates
 ```
 
 ### Specify flags and options in long-form

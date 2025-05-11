@@ -9,10 +9,10 @@
 var clasp;
 try {
 
-	clasp = require('clasp-js');
+  clasp = require('clasp-js');
 } catch (x) {
 
-	clasp = require('../lib/clasp');
+  clasp = require('../lib/clasp');
 }
 
 const util = require('util');
@@ -21,9 +21,9 @@ const util = require('util');
 
 function format_to(stm, fmt, ...args) {
 
-	var s = util.format(fmt, ...args);
+  var s = util.format(fmt, ...args);
 
-	stm.write(s);
+  stm.write(s);
 }
 
 // constants
@@ -31,18 +31,18 @@ function format_to(stm, fmt, ...args) {
 const ProgramVersion = [ 0, 0, 2 ];
 const info_lines = [
 
-	'CLASP.js examples',
-	':version',
-	"Illustrates use of CLASP.js's show_usage() and show_version() methods",
-	'',
+  'CLASP.js examples',
+  ':version',
+  "Illustrates use of CLASP.js's show_usage() and show_version() methods",
+  '',
 ];
 
 // Specify aliases, parse, and checking standard flags
 
 const aliases = [
 
-	clasp.specifications.HELP_FLAG,
-	clasp.specifications.VERSION_FLAG,
+  clasp.specifications.HELP_FLAG,
+  clasp.specifications.VERSION_FLAG,
 ];
 
 
@@ -50,21 +50,21 @@ var args = clasp.api.parse(process.argv, aliases);
 
 if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
-	clasp.usage.showUsage(aliases, {
+  clasp.usage.showUsage(aliases, {
 
-		version: ProgramVersion,
-		info_lines: info_lines,
-		exit_code: 0,
-	});
+    version: ProgramVersion,
+    info_lines: info_lines,
+    exit_code: 0,
+  });
 }
 
 if (args.flagIsSpecified('--version')) {
 
-	clasp.usage.showVersion({
+  clasp.usage.showVersion({
 
-		version: ProgramVersion,
-		exit_code: 0,
-	});
+    version: ProgramVersion,
+    exit_code: 0,
+  });
 }
 
 
@@ -73,9 +73,9 @@ if (args.flagIsSpecified('--version')) {
 var unused = null;
 if (null != (unused = args.getFirstUnusedFlagOrOption())) {
 
-	format_to(process.stderr, "%s: unrecognised flag/option: %s\n", args.program_name, unused);
+  format_to(process.stderr, "%s: unrecognised flag/option: %s\n", args.program_name, unused);
 
-	process.exit(1)
+  process.exit(1)
 }
 
 
