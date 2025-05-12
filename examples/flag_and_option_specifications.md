@@ -7,9 +7,9 @@ Example illustrating various kinds of *flag* and *option* aliases, including the
 ## Source
 
 ```javascript
-#!/usr/bin/env node --use_strict
+#! /usr/bin/env node --use_strict
 
-// examples/flag_and_option_aliases.js
+// examples/flag_and_option_specifications.js
 
 'use strict';
 
@@ -26,9 +26,9 @@ const info_lines = [
 	'',
 ];
 
-const flag_Debug = clasp.aliases.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
-const option_Verbosity = clasp.aliases.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
-const flag_Chatty = clasp.aliases.Flag('--verbosity=chatty', { alias: '-c' });
+const flag_Debug = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
+const option_Verbosity = clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
+const flag_Chatty = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
 
 function format_to(stm, fmt, ...args) {
 
@@ -45,14 +45,14 @@ const aliases = [
 	option_Verbosity,
 	flag_Chatty,
 
-	clasp.aliases.HELP_FLAG,
-	clasp.aliases.VERSION_FLAG,
+	clasp.specifications.HELP_FLAG,
+	clasp.specifications.VERSION_FLAG,
 ];
 
 
 var args = clasp.api.parse(process.argv, aliases);
 
-if (args.flagIsSpecified(clasp.aliases.HELP_FLAG)) {
+if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
 	clasp.usage.showUsage(aliases, {
 
@@ -102,13 +102,13 @@ if (null != (unused = args.getFirstUnusedFlagOrOption())) {
 If executed with no arguments
 
 ```
-    node examples/flag_and_option_aliases.js
+    node examples/flag_and_option_specifications.js
 ```
 
 or (in a Unix shell):
 
 ```
-    ./examples/flag_and_option_aliases.js
+    ./examples/flag_and_option_specifications.js
 ```
 
 it gives the output:
@@ -121,17 +121,17 @@ it gives the output:
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js --help
+    node examples/flag_and_option_specifications.js --help
 ```
 
 it gives the output:
 
 ```
 CLASP.js examples
-flag_and_option_aliases.js 0.0.1
+flag_and_option_specifications.js 0.0.1
 Illustrates use of CLASP.js's clasp.show_usage() and clasp.show_version() methods
 
-USAGE: flag_and_option_aliases.js [ ... flags and options ... ]
+USAGE: flag_and_option_specifications.js [ ... flags and options ... ]
 
 flags/options:
 
@@ -159,7 +159,7 @@ flags/options:
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js --debug --verbosity=silent
+    node examples/flag_and_option_specifications.js --debug --verbosity=silent
 ```
 
 it gives the output:
@@ -174,7 +174,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js -v silent -d
+    node examples/flag_and_option_specifications.js -v silent -d
 ```
 
 it gives the (same) output:
@@ -189,7 +189,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js -c -d
+    node examples/flag_and_option_specifications.js -c -d
 ```
 
 it gives the output:
@@ -204,7 +204,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_aliases.js -dc
+    node examples/flag_and_option_specifications.js -dc
 ```
 
 it gives the (same) output:

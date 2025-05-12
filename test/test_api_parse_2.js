@@ -62,7 +62,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Flag('--verbose', { alias: '-v' }),
+				clasp.specifications.Flag('--verbose', { alias: '-v' }),
 			];
 
 			var argv = [ 'bin/myprog', '--verbose', '--succinct', 'value', '-v' ];
@@ -117,7 +117,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-					clasp.aliases.Flag('--expand', { aliases: [ '-x', '--x' ], extras: { 'some-value': [ 'e', 'x', 't', 'r', 'a', 's', ] } }),
+					clasp.specifications.Flag('--expand', { aliases: [ '-x', '--x' ], extras: { 'some-value': [ 'e', 'x', 't', 'r', 'a', 's', ] } }),
 			];
 
 			var argv = [ 'bin/myprog', '-f1', 'value1', '-x', '--delete', '--x' ];
@@ -183,7 +183,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--verbosity', { alias: '-v' }),
+				clasp.specifications.Option('--verbosity', { alias: '-v' }),
 			];
 
 			var argv = [ 'bin/myprog', '-f1', 'value1', '-v=loud' ];
@@ -228,7 +228,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--option', { alias: '-o' }),
+				clasp.specifications.Option('--option', { alias: '-o' }),
 			];
 
 			var argv = [ 'bin/myprog', '-o', 'value1' ];
@@ -260,7 +260,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
+				clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
 			];
 
 			var argv = [ 'bin/myprog', '-o', 'value1' ];
@@ -292,7 +292,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
+				clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
 			];
 
 			var argv = [ 'bin/myprog', '-o', '-o' ];
@@ -324,7 +324,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
+				clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
 			];
 
 			var argv = [ 'bin/myprog', '-o' ];
@@ -356,7 +356,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
+				clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
 			];
 
 			var argv = [ 'bin/myprog', '-o=', 'value-2' ];
@@ -390,8 +390,8 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--verbosity'),
-				clasp.aliases.Flag('--verbosity=high', { alias: '-v' }),
+				clasp.specifications.Option('--verbosity'),
+				clasp.specifications.Flag('--verbosity=high', { alias: '-v' }),
 			];
 
 			var argv = [ 'bin/myprog', '-v' ];
@@ -423,7 +423,7 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Option('--option', { alias: '-o', default_value: 'default-value' }),
+				clasp.specifications.Option('--option', { alias: '-o', default_value: 'default-value' }),
 			];
 
 			var argv = [ 'bin/myprog', '-f1', 'value-1', '-o=', '-o=given-value-1', '--option=given-value-2' ];

@@ -20,9 +20,9 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Flag('--compile', { alias: '-c' }),
-				clasp.aliases.Flag('--debug', { alias: '-d' }),
-				clasp.aliases.Flag('--execute', { alias: '-e' }),
+				clasp.specifications.Flag('--compile', { alias: '-c' }),
+				clasp.specifications.Flag('--debug', { alias: '-d' }),
+				clasp.specifications.Flag('--execute', { alias: '-e' }),
 			];
 
 			var argv = [ 'bin/myprog', '-ced' ];
@@ -75,10 +75,10 @@ describe('clasp.api.parse()', function() {
 
 			var aliases = [
 
-				clasp.aliases.Flag('--compile', { alias: '-c' }),
-				clasp.aliases.Flag('--mode=debug', { alias: '-d' }),
-				clasp.aliases.Flag('--execute', { alias: '-e' }),
-				clasp.aliases.Option('--mode', { alias: '-m' }),
+				clasp.specifications.Flag('--compile', { alias: '-c' }),
+				clasp.specifications.Flag('--mode=debug', { alias: '-d' }),
+				clasp.specifications.Flag('--execute', { alias: '-e' }),
+				clasp.specifications.Option('--mode', { alias: '-m' }),
 			];
 
 			var argv = [ 'bin/myprog', '-ced' ];
@@ -130,9 +130,9 @@ describe('clasp.api.parse()', function() {
 
 		it('flags of flags and options combined', function() {
 
-			const option_Verbosity	=	clasp.aliases.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
-			const flag_Chatty = clasp.aliases.Flag('--verbosity=chatty', { alias: '-c' });
-			const flag_Debug = clasp.aliases.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
+			const option_Verbosity	=	clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
+			const flag_Chatty = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
+			const flag_Debug = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
 
 			var aliases = [
 
@@ -140,8 +140,8 @@ describe('clasp.api.parse()', function() {
 				option_Verbosity,
 				flag_Chatty,
 
-				clasp.aliases.HELP_FLAG,
-				clasp.aliases.VERSION_FLAG,
+				clasp.specifications.HELP_FLAG,
+				clasp.specifications.VERSION_FLAG,
 			];
 
 			var argv = [ 'bin/myprog', '-cd' ];

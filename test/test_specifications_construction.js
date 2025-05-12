@@ -5,17 +5,17 @@ const clasp = require('../index');
 const assert = require('assert');
 const mstreams = require('memory-streams');
 
-describe('clasp.aliases', function() {
+describe('clasp.specifications', function() {
 
 	describe('Flag()', function() {
 
 		it('can create a Flag with name and help', function() {
 
-			var flag = clasp.aliases.Flag('--verbose', { help: 'Makes the output verbose', extras: null });
+			var flag = clasp.specifications.Flag('--verbose', { help: 'Makes the output verbose', extras: null });
 
-			assert.ok(clasp.aliases.isAlias(flag));
-			assert.ok(clasp.aliases.isFlag(flag));
-			assert.ok(!clasp.aliases.isOption(flag));
+			assert.ok(clasp.specifications.isSpecification(flag));
+			assert.ok(clasp.specifications.isFlag(flag));
+			assert.ok(!clasp.specifications.isOption(flag));
 
 			assert.equal('--verbose', flag.name);
 			assert.equal('Makes the output verbose', flag.help);
@@ -26,11 +26,11 @@ describe('clasp.aliases', function() {
 
 		it('can create a Flag with one alias', function() {
 
-			var flag = clasp.aliases.Flag('--verbose', { alias: '-v' });
+			var flag = clasp.specifications.Flag('--verbose', { alias: '-v' });
 
-			assert.ok(clasp.aliases.isAlias(flag));
-			assert.ok(clasp.aliases.isFlag(flag));
-			assert.ok(!clasp.aliases.isOption(flag));
+			assert.ok(clasp.specifications.isSpecification(flag));
+			assert.ok(clasp.specifications.isFlag(flag));
+			assert.ok(!clasp.specifications.isOption(flag));
 
 			assert.equal('--verbose', flag.name);
 			assert.equal(null, flag.help);
@@ -42,11 +42,11 @@ describe('clasp.aliases', function() {
 
 		it('can create a Flag with two aliases', function() {
 
-			var flag = clasp.aliases.Flag('--verbose', { aliases: [ '-v', '--v' ] });
+			var flag = clasp.specifications.Flag('--verbose', { aliases: [ '-v', '--v' ] });
 
-			assert.ok(clasp.aliases.isAlias(flag));
-			assert.ok(clasp.aliases.isFlag(flag));
-			assert.ok(!clasp.aliases.isOption(flag));
+			assert.ok(clasp.specifications.isSpecification(flag));
+			assert.ok(clasp.specifications.isFlag(flag));
+			assert.ok(!clasp.specifications.isOption(flag));
 
 			assert.equal('--verbose', flag.name);
 			assert.equal(null, flag.help);
@@ -62,11 +62,11 @@ describe('clasp.aliases', function() {
 
 		it('can create a Option with name and help', function() {
 
-			var option = clasp.aliases.Option('--verbose', { help: 'Makes the output verbose', extras: null });
+			var option = clasp.specifications.Option('--verbose', { help: 'Makes the output verbose', extras: null });
 
-			assert.ok(clasp.aliases.isAlias(option));
-			assert.ok(!clasp.aliases.isFlag(option));
-			assert.ok(clasp.aliases.isOption(option));
+			assert.ok(clasp.specifications.isSpecification(option));
+			assert.ok(!clasp.specifications.isFlag(option));
+			assert.ok(clasp.specifications.isOption(option));
 
 			assert.equal('--verbose', option.name);
 			assert.equal('Makes the output verbose', option.help);
@@ -77,11 +77,11 @@ describe('clasp.aliases', function() {
 
 		it('can create a Option with one alias', function() {
 
-			var option = clasp.aliases.Option('--verbose', { alias: '-v' });
+			var option = clasp.specifications.Option('--verbose', { alias: '-v' });
 
-			assert.ok(clasp.aliases.isAlias(option));
-			assert.ok(!clasp.aliases.isFlag(option));
-			assert.ok(clasp.aliases.isOption(option));
+			assert.ok(clasp.specifications.isSpecification(option));
+			assert.ok(!clasp.specifications.isFlag(option));
+			assert.ok(clasp.specifications.isOption(option));
 
 			assert.equal('--verbose', option.name);
 			assert.equal(null, option.help);

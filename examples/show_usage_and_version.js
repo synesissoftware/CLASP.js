@@ -1,4 +1,4 @@
-#!/usr/bin/env node --use_strict
+#! /usr/bin/env node --use_strict
 
 // examples/show_usage_and_version.js
 
@@ -28,7 +28,7 @@ function format_to(stm, fmt, ...args) {
 
 // constants
 
-const ProgramVersion = "0.0.1";
+const ProgramVersion = [ 0, 0, 2 ];
 const info_lines = [
 
 	'CLASP.js examples',
@@ -41,14 +41,14 @@ const info_lines = [
 
 const aliases = [
 
-	clasp.aliases.HELP_FLAG,
-	clasp.aliases.VERSION_FLAG,
+	clasp.specifications.HELP_FLAG,
+	clasp.specifications.VERSION_FLAG,
 ];
 
 
 var args = clasp.api.parse(process.argv, aliases);
 
-if (args.flagIsSpecified(clasp.aliases.HELP_FLAG)) {
+if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
 	clasp.usage.showUsage(aliases, {
 
