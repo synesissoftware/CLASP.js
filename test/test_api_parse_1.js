@@ -12,7 +12,7 @@ function _isPlainObject(obj) {
 
 describe('clasp.api.parse()', function() {
 
-  describe('with no aliases', function() {
+  describe('with no specifications', function() {
 
     it('empty argv parses into empty flags, options, values', function() {
 
