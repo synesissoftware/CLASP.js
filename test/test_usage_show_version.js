@@ -143,7 +143,7 @@ describe('clasp.usage.showUsage()', function() {
 
     expected = expected.concat([
 
-        'USAGE: myprog [ ... flags and options ... ]',
+        'USAGE: myprog [ ... flags ... ]',
         '',
         'flags/options:',
         '',

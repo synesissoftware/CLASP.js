@@ -1,6 +1,11 @@
 # **CLASP.js** Changes <!-- omit in toc -->
 
 
+## 0.4.0 - 12th May 2025
+
+* Now evaluates whether there are any flags and/or any options when providing the default `"flags_and_options_string"`;
+
+
 ## 0.3.1 - 12th May 2025
 
 * Fixed handling of value indexes;
