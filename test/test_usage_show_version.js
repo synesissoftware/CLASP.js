@@ -63,7 +63,7 @@ describe('clasp.usage.showUsage()', function() {
 
   it('works with minimal input', function() {
 
-    var aliases = [
+    var specifications = [
     ];
 
     var info_lines = [
@@ -85,7 +85,7 @@ describe('clasp.usage.showUsage()', function() {
       stream: stm
     };
 
-    clasp.usage.showUsage(aliases, args);
+    clasp.usage.showUsage(specifications, args);
 
     var actual = stm.toString();
     var expected = [
@@ -100,9 +100,9 @@ describe('clasp.usage.showUsage()', function() {
     assert.deepEqual(expected, actual);
   });
 
-  it('works with standard aliases, program-name, []int version', function() {
+  it('works with standard specifications, program-name, []int version', function() {
 
-    var aliases = [
+    var specifications = [
 
       clasp.specifications.HELP_FLAG,
       clasp.specifications.VERSION_FLAG,
@@ -132,7 +132,7 @@ describe('clasp.usage.showUsage()', function() {
       stream: stm
     };
 
-    clasp.usage.showUsage(aliases, args);
+    clasp.usage.showUsage(specifications, args);
 
     var actual = stm.toString();
     var expected = info_lines.slice();
@@ -163,9 +163,9 @@ describe('clasp.usage.showUsage()', function() {
     assert.deepEqual(expected, actual);
   });
 
-  it('works with custom aliases, program-name, []int version', function() {
+  it('works with custom specifications, program-name, []int version', function() {
 
-    var aliases = [
+    var specifications = [
 
       clasp.specifications.Flag('--verbose', { alias: '-v', help: 'Makes it verbose' }),
 
@@ -197,7 +197,7 @@ describe('clasp.usage.showUsage()', function() {
       stream: stm
     };
 
-    clasp.usage.showUsage(aliases, args);
+    clasp.usage.showUsage(specifications, args);
 
     var actual = stm.toString();
     var expected = info_lines.slice();

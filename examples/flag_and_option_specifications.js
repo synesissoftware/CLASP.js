@@ -37,13 +37,13 @@ const info_lines = [
   '',
 ];
 
-// Specify aliases, parse, and checking standard flags
+// Define specifications, parse, and checking standard flags
 
 const flag_Debug        = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
 const option_Verbosity  = clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
 const flag_Chatty       = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
 
-const aliases = [
+const specifications = [
 
   flag_Debug,
   option_Verbosity,
@@ -54,11 +54,11 @@ const aliases = [
 ];
 
 
-var args = clasp.api.parse(process.argv, aliases);
+var args = clasp.api.parse(process.argv, specifications);
 
 if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
-  clasp.usage.showUsage(aliases, {
+  clasp.usage.showUsage(specifications, {
 
     version: ProgramVersion,
     info_lines: info_lines,

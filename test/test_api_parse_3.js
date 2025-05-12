@@ -18,7 +18,7 @@ describe('clasp.api.parse()', function() {
 
     it('flags combined', function() {
 
-      var aliases = [
+      var specifications = [
 
         clasp.specifications.Flag('--compile', { alias: '-c' }),
         clasp.specifications.Flag('--debug', { alias: '-d' }),
@@ -26,7 +26,7 @@ describe('clasp.api.parse()', function() {
       ];
 
       var argv = [ 'bin/myprog', '-ced' ];
-      var args = clasp.api.parse(argv, aliases);
+      var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
       assert.equal(3, args.flags.length);
@@ -73,7 +73,7 @@ describe('clasp.api.parse()', function() {
 
     it('flags of flags and options combined', function() {
 
-      var aliases = [
+      var specifications = [
 
         clasp.specifications.Flag('--compile', { alias: '-c' }),
         clasp.specifications.Flag('--mode=debug', { alias: '-d' }),
@@ -82,7 +82,7 @@ describe('clasp.api.parse()', function() {
       ];
 
       var argv = [ 'bin/myprog', '-ced' ];
-      var args = clasp.api.parse(argv, aliases);
+      var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
       assert.equal(2, args.flags.length);
@@ -134,7 +134,7 @@ describe('clasp.api.parse()', function() {
       const flag_Chatty       = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
       const flag_Debug        = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
 
-      var aliases = [
+      var specifications = [
 
         flag_Debug,
         option_Verbosity,
@@ -145,7 +145,7 @@ describe('clasp.api.parse()', function() {
       ];
 
       var argv = [ 'bin/myprog', '-cd' ];
-      var args = clasp.api.parse(argv, aliases);
+      var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
       assert.equal(1, args.flags.length);
