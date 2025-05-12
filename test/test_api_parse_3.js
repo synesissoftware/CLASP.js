@@ -25,7 +25,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Flag('--execute', { alias: '-e' }),
       ];
 
-      var argv = [ 'bin/myprog', '-ced' ];
+      var argv = [ 'bin/myprog', 'myscript', '-ced' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -81,7 +81,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--mode', { alias: '-m' }),
       ];
 
-      var argv = [ 'bin/myprog', '-ced' ];
+      var argv = [ 'bin/myprog', 'myscript', '-ced' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -144,7 +144,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.VERSION_FLAG,
       ];
 
-      var argv = [ 'bin/myprog', '-cd' ];
+      var argv = [ 'bin/myprog', 'myscript', '-cd' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');

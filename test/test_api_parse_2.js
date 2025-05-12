@@ -20,7 +20,7 @@ describe('clasp.api.parse()', function() {
 
       var specifications = [];
 
-      var argv = [ 'bin/myprog', '-f1', 'value1', '--first-option=val1' ];
+      var argv = [ 'bin/myprog', 'myscript', '-f1', 'value1', '--first-option=val1' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -65,7 +65,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Flag('--verbose', { alias: '-v' }),
       ];
 
-      var argv = [ 'bin/myprog', '--verbose', '--succinct', 'value', '-v' ];
+      var argv = [ 'bin/myprog', 'myscript', '--verbose', '--succinct', 'value', '-v' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -120,7 +120,7 @@ describe('clasp.api.parse()', function() {
           clasp.specifications.Flag('--expand', { aliases: [ '-x', '--x' ], extras: { 'some-value': [ 'e', 'x', 't', 'r', 'a', 's', ] } }),
       ];
 
-      var argv = [ 'bin/myprog', '-f1', 'value1', '-x', '--delete', '--x' ];
+      var argv = [ 'bin/myprog', 'myscript', '-f1', 'value1', '-x', '--delete', '--x' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -186,7 +186,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--verbosity', { alias: '-v' }),
       ];
 
-      var argv = [ 'bin/myprog', '-f1', 'value1', '-v=loud' ];
+      var argv = [ 'bin/myprog', 'myscript', '-f1', 'value1', '-v=loud' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -231,7 +231,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--option', { alias: '-o' }),
       ];
 
-      var argv = [ 'bin/myprog', '-o', 'value1' ];
+      var argv = [ 'bin/myprog', 'myscript', '-o', 'value1' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -263,7 +263,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
       ];
 
-      var argv = [ 'bin/myprog', '-o', 'value1' ];
+      var argv = [ 'bin/myprog', 'myscript', '-o', 'value1' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -295,7 +295,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
       ];
 
-      var argv = [ 'bin/myprog', '-o', '-o' ];
+      var argv = [ 'bin/myprog', 'myscript', '-o', '-o' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -327,7 +327,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
       ];
 
-      var argv = [ 'bin/myprog', '-o' ];
+      var argv = [ 'bin/myprog', 'myscript', '-o' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -359,7 +359,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--option', { alias: '-o', default_value: 'def-value-1' }),
       ];
 
-      var argv = [ 'bin/myprog', '-o=', 'value-2' ];
+      var argv = [ 'bin/myprog', 'myscript', '-o=', 'value-2' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -394,7 +394,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Flag('--verbosity=high', { alias: '-v' }),
       ];
 
-      var argv = [ 'bin/myprog', '-v' ];
+      var argv = [ 'bin/myprog', 'myscript', '-v' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
@@ -426,7 +426,7 @@ describe('clasp.api.parse()', function() {
         clasp.specifications.Option('--option', { alias: '-o', default_value: 'default-value' }),
       ];
 
-      var argv = [ 'bin/myprog', '-f1', 'value-1', '-o=', '-o=given-value-1', '--option=given-value-2' ];
+      var argv = [ 'bin/myprog', 'myscript', '-f1', 'value-1', '-o=', '-o=given-value-1', '--option=given-value-2' ];
       var args = clasp.api.parse(argv, specifications);
 
       assert.ok(Array.isArray(args.flags), 'flags property must be an array');
