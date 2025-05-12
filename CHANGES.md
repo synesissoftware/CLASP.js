@@ -1,10 +1,14 @@
 # **CLASP.js** Changes <!-- omit in toc -->
 
 
+## 0.3.1 - 12th May 2025
+
+* Fixed handling of value indexes;
+
+
 ## 0.3.0 - 12th May 2025
 
 * renamed `Alias` to `Specification` and `aliases` to `specifications` (to be in line with recent years' versions of other **CLASP** libraries);
-* T.B.C.;
 
 
 ## 0.2.5 - 9th May 2025
