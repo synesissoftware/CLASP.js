@@ -98,4 +98,7 @@ if (null != (unused = args.getFirstUnusedFlagOrOption())) {
   process.exit(1)
 }
 
+if (0 != args.values.length) {
+  format_to(process.stderr, "%s: values: %s\n", args.program_name, args.values);
+}
 
