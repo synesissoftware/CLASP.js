@@ -120,7 +120,6 @@ None
 
 #### Development/Testing Dependencies
 
-* [**memory-streams**](https://www.npmjs.com/package/memory-streams);
 * [**mocha**](https://www.npmjs.com/package/mocha);
 
 

@@ -27,7 +27,7 @@
 * [x] Fix **EXAMPLES.md** repo-relative links; normalise **CHANGES.md** bullets;
 * [x] Rename **lib/clasp/aliases.js** to **specifications.js**; align example local names;
 * [x] Complete **JavaScript** **run_all_unit_tests.sh** from **misc-dev-scripts** and adopt it;
-* [ ] Replace **memory-streams** in tests; drop unused imports;
+* [x] Replace **memory-streams** in tests; drop unused imports;
 * [x] After the boilerplate baseline: bump version and align **CHANGES**/**NEWS**;
 
 

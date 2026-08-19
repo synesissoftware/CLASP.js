@@ -9,6 +9,7 @@
 * Fleshed out **README.md** Introduction and Components;
 * Fixed **EXAMPLES.md** repo-relative links; normalised **CHANGES.md** bullets;
 * Adopted **misc-dev-scripts** **JavaScript** **run_all_unit_tests.sh** (replaces stub; **npm**/**pnpm**/**yarn** detection, `--help` / `--pwd`, auto-install when **node_modules** is absent);
+* Replaced **memory-streams** in tests with Node **`stream.Writable`**; removed unused test imports;
 
 
 ## 0.4.0 - 12th May 2025
