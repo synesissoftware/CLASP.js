@@ -18,11 +18,14 @@
     ".": "./index.js"
   },
   "files": [
+    "AUTHORS.md",
     "CHANGES.md",
     "index.js",
     "lib/",
     "LICENSE",
-    "README.md"
+    "NEWS.md",
+    "README.md",
+    "TODO.md"
   ],
   "homepage": "https://github.com/synesissoftware/CLASP.js#readme",
   "keywords": [
