@@ -8,6 +8,8 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/clasp-js.svg)](https://www.npmjs.com/package/clasp-js)
 [![GitHub release](https://img.shields.io/github/v/release/synesissoftware/CLASP.js.svg)](https://github.com/synesissoftware/CLASP.js/releases/latest)
 [![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/CLASP.js)](https://github.com/synesissoftware/CLASP.js/commits/master)
+[![Node](https://github.com/synesissoftware/CLASP.js/actions/workflows/node.yml/badge.svg)](https://github.com/synesissoftware/CLASP.js/actions/workflows/node.yml)
+
 
 ## Table of Contents <!-- omit in toc -->
 
