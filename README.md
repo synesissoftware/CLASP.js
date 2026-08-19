@@ -2,6 +2,12 @@
 
 **C**ommand-**L**ine **A**rgument **S**orting and **P**arsing, for JavaScript
 
+![Language](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![NPM Version](https://img.shields.io/npm/v/clasp-js.svg)](https://www.npmjs.com/package/clasp-js)
+[![NPM Downloads](https://img.shields.io/npm/dm/clasp-js.svg)](https://www.npmjs.com/package/clasp-js)
+[![GitHub release](https://img.shields.io/github/v/release/synesissoftware/CLASP.js.svg)](https://github.com/synesissoftware/CLASP.js/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/CLASP.js)](https://github.com/synesissoftware/CLASP.js/commits/master)
 
 ## Table of Contents <!-- omit in toc -->
 
