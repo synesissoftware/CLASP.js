@@ -25,7 +25,7 @@
 * [x] ~~~add **AUTHORS.md**, **NEWS.md**, and **TODO.md**; include them in npm **`files`**~~~;
 * [x] Flesh out **README.md** Introduction and Components (from **CLASP.Ruby**);
 * [x] Fix **EXAMPLES.md** repo-relative links; normalise **CHANGES.md** bullets;
-* [ ] Rename **lib/clasp/aliases.js** to **specifications.js**; align example local names;
+* [x] Rename **lib/clasp/aliases.js** to **specifications.js**; align example local names;
 * [ ] Complete **JavaScript** **run_all_unit_tests.sh** from **misc-dev-scripts** and adopt it;
 * [ ] Replace **memory-streams** in tests; drop unused imports;
 * [x] After the boilerplate baseline: bump version and align **CHANGES**/**NEWS**;
