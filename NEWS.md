@@ -12,7 +12,7 @@
 | 22nd August 2019 | Release of **CLASP.js** 0.2.3                                                                     |
 | 10th June 2019   | Release of **CLASP.js** 0.2.2                                                                     |
 | 18th March 2019  | Release of **CLASP.js** 0.2.1                                                                     |
-| 18th March 2019  | Release of **CLASP.js** 0.2.0                                                                     |
+| 17th March 2019  | Release of **CLASP.js** 0.2.0                                                                     |
 
 
 <!-- ########################### end of file ########################### -->

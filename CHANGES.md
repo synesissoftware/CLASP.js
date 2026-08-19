@@ -4,8 +4,10 @@
 ## 0.4.1 - 19th August 2026
 
 * Added Node GitHub Actions workflow and README badge;
-* Hardened package.json metadata and npm publish surface;
-* Added AUTHORS.md, NEWS.md, and TODO.md boilerplate;
+* Hardened **package.json** metadata and npm publish surface;
+* Added **AUTHORS.md**, **NEWS.md**, and **TODO.md** boilerplate;
+* Fleshed out **README.md** Introduction and Components;
+* Fixed **EXAMPLES.md** repo-relative links; normalised **CHANGES.md** bullets;
 
 
 ## 0.4.0 - 12th May 2025
@@ -20,33 +22,37 @@
 
 ## 0.3.0 - 12th May 2025
 
-* renamed `Alias` to `Specification` and `aliases` to `specifications` (to be in line with recent years' versions of other **CLASP** libraries);
+* Renamed `Alias` to `Specification` and `aliases` to `specifications` (to be in line with recent years' versions of other **CLASP** libraries);
 
 
 ## 0.2.5 - 9th May 2025
 
-* project boilerplate;
+* Project boilerplate;
 
 
 ## 0.2.4 - 10th April 2020
 
-* ~ updated dependencies so as to obviate security issue with 'minimist'
+* Updated dependencies so as to obviate security issue with **minimist**;
 
 
 ## 0.2.3 - 22nd August 2019
 
-* ~ updated dependencies so as to obviate security issue with 'lodash < 4.17.13'
+* Updated dependencies so as to obviate security issue with **lodash** `< 4.17.13`;
 
 
 ## 0.2.2 - 10th June 2019
 
-* ~ updated dependencies so as to obviate security issue with 'js-yaml < 3.13.1'
+* Updated dependencies so as to obviate security issue with **js-yaml** `< 3.13.1`;
 
 
-## previous versions
+## 0.2.1 - 19th March 2019
 
-T.B.C.
+* Moved test dependencies from `dependencies` to `devDependencies`;
+
+
+## 0.2.0 - 17th March 2019
+
+* Initial npm release; added utility functions and examples;
 
 
 <!-- ########################### end of file ########################### -->
-
