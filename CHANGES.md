@@ -1,4 +1,4 @@
-# **CLASP.js** Changes <!-- omit in toc -->
+# CLASP.js - Changes <!-- omit in toc -->
 
 
 ## 0.4.0 - 12th May 2025

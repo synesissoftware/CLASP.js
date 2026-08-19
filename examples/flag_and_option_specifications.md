@@ -1,4 +1,4 @@
-# CLASP.js Example - **show_usage_and_version** <!-- omit in toc -->
+# CLASP.js - Example - **show_usage_and_version** <!-- omit in toc -->
 
 ## Summary
 

@@ -1,4 +1,4 @@
-# CLASP.js Examples <!-- omit in toc -->
+# CLASP.js - Examples <!-- omit in toc -->
 
 | Name  | Source & Description  | Summary   |
 | ----- | --------------------- | --------- |
