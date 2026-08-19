@@ -23,6 +23,7 @@
   - [Where to get help](#where-to-get-help)
   - [Contribution guidelines](#contribution-guidelines)
   - [Dependencies](#dependencies)
+    - [Development/Testing Dependencies](#developmenttesting-dependencies)
   - [Related projects](#related-projects)
   - [License](#license)
 
@@ -74,9 +75,13 @@ Defect reports, feature requests, and pull requests are welcome on https://githu
 
 ### Dependencies
 
- * [**assert**](https://www.npmjs.com/package/assert) (Development-only);
- * [**memory-streams**](https://www.npmjs.com/package/memory-streams) (Development-only);
- * [**mocha**](https://www.npmjs.com/package/mocha) (Development-only);
+None
+
+
+#### Development/Testing Dependencies
+
+* [**memory-streams**](https://www.npmjs.com/package/memory-streams);
+* [**mocha**](https://www.npmjs.com/package/mocha);
 
 
 ### Related projects

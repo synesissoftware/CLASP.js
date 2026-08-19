@@ -1,28 +1,47 @@
 {
   "author": "Matt Wilson <matthew@synesis.com.au>",
-  "devDependencies": {
-    "assert": "^1.5.0",
-    "memory-streams": "^0.1.3",
-    "minimist": "^1.2.5",
-    "mocha": "^10.8.2"
+  "bugs": {
+    "url": "https://github.com/synesissoftware/CLASP.js/issues"
   },
   "description": "CLASP for JavaScript",
+  "devDependencies": {
+    "memory-streams": "^0.1.3",
+    "mocha": "^10.8.2"
+  },
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "CHANGES.md",
+    "index.js",
+    "lib/",
+    "LICENSE",
+    "README.md"
+  ],
+  "homepage": "https://github.com/synesissoftware/CLASP.js#readme",
+  "keywords": [
+    "arguments",
+    "CLASP",
+    "CLI",
+    "command-line",
+    "parsing"
+  ],
+  "license": "BSD-3-Clause",
   "main": "index.js",
   "name": "clasp-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synesissoftware/CLASP.js.git"
+  },
   "scripts": {
     "test": "mocha --reporter spec"
   },
   "version": "0.4.0",
-  "keywords": [
-    "CLASP",
-    "CLI",
-    "command-line",
-    "arguments",
-    "parsing"
-  ],
-  "license": "BSD-3-Clause",
   "_null": null
 }
