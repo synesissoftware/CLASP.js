@@ -3,6 +3,7 @@
 
 | Date             | News Item                                                                                         |
 | ---------------- | ------------------------------------------------------------------------------------------------- |
+| 19th August 2026 | Release of [**CLASP.js** 0.4.1](https://github.com/synesissoftware/CLASP.js/releases/tag/0.4.1)   |
 | 12th May 2025    | Release of [**CLASP.js** 0.4.0](https://github.com/synesissoftware/CLASP.js/releases/tag/0.4.0)   |
 | 12th May 2025    | Release of **CLASP.js** 0.3.1                                                                     |
 | 12th May 2025    | Release of **CLASP.js** 0.3.0                                                                     |

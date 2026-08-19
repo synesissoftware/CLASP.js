@@ -1,6 +1,13 @@
 # CLASP.js - Changes <!-- omit in toc -->
 
 
+## 0.4.1 - 19th August 2026
+
+* Added Node GitHub Actions workflow and README badge;
+* Hardened package.json metadata and npm publish surface;
+* Added AUTHORS.md, NEWS.md, and TODO.md boilerplate;
+
+
 ## 0.4.0 - 12th May 2025
 
 * Now evaluates whether there are any flags and/or any options when providing the default `"flags_and_options_string"`;
