@@ -1,4 +1,4 @@
-# CLASP.js Example - **show_usage_and_version** <!-- omit in toc -->
+# CLASP.js - Example - **show_usage_and_version** <!-- omit in toc -->
 
 ## Summary
 
@@ -38,20 +38,20 @@ const info_lines = [
   '',
 ];
 
-// Specify aliases, parse, and checking standard flags
+// Specify specifications, parse, and checking standard flags
 
-const aliases = [
+const specifications = [
 
   clasp.specifications.HELP_FLAG,
   clasp.specifications.VERSION_FLAG,
 ];
 
 
-var args = clasp.api.parse(process.argv, aliases);
+var args = clasp.api.parse(process.argv, specifications);
 
 if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
-  clasp.usage.showUsage(aliases, {
+  clasp.usage.showUsage(specifications, {
 
     version: ProgramVersion,
     info_lines: info_lines,
@@ -90,13 +90,13 @@ format_to(process.stdout, "no flags specified\n");
 If executed with no arguments
 
 ```
-    node examples/show_usage_and_version.js
+node examples/show_usage_and_version.js
 ```
 
 or (in a Unix shell):
 
 ```
-    ./examples/show_usage_and_version.js
+./examples/show_usage_and_version.js
 ```
 
 it gives the output:
@@ -110,7 +110,7 @@ no flags specified
 If executed with the arguments
 
 ```
-    node examples/show_usage_and_version.js --help
+node examples/show_usage_and_version.js --help
 ```
 
 it gives the output:
@@ -136,7 +136,7 @@ flags/options:
 If executed with the arguments
 
 ```
-    node examples/show_usage_and_version.js --version
+node examples/show_usage_and_version.js --version
 ```
 
 it gives the output:
@@ -150,7 +150,7 @@ show_usage_and_version.js 0.0.1
 If executed with the arguments
 
 ```
-    node examples/show_usage_and_version.js --unknown=value
+node examples/show_usage_and_version.js --unknown=value
 ```
 
 it gives the output (on the standard error stream):

@@ -3,9 +3,6 @@
 const clasp = require('../index');
 
 const assert = require('assert');
-const mstreams = require('memory-streams');
-
-const util = require('util');
 
 function _isPlainObject(obj) {
 
