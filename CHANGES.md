@@ -1,7 +1,7 @@
 # CLASP.js - Changes <!-- omit in toc -->
 
 
-## 0.4.1 - 19th August 2026
+## 0.4.1 - 22nd October 2026
 
 * Added Node GitHub Actions workflow and README badge;
 * Hardened **package.json** metadata and npm publish surface;
@@ -11,6 +11,7 @@
 * Renamed **lib/clasp/aliases.js** to **specifications.js**; aligned example local names;
 * Adopted **misc-dev-scripts** **JavaScript** **run_all_unit_tests.sh** (replaces stub; **npm**/**pnpm**/**yarn** detection, `--help` / `--pwd`, auto-install when **node_modules** is absent);
 * Replaced **memory-streams** in tests with Node **`stream.Writable`**; removed unused test imports;
+* Updated **mocha** to 12.0.3 so as to obviate the security issue in **serialize-javascript** `< 7.1.2`;
 
 
 ## 0.4.0 - 12th May 2025
