@@ -3,7 +3,29 @@
 const clasp = require('../index');
 
 const assert = require('assert');
-const mstreams = require('memory-streams');
+const { Writable } = require('stream');
+
+function _createWritableStream() {
+
+  var chunks = [];
+
+  var stream = new Writable({
+
+    write: function(chunk, encoding, callback) {
+
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk, encoding));
+
+      callback();
+    },
+  });
+
+  stream.toString = function() {
+
+    return Buffer.concat(chunks).toString('utf8');
+  };
+
+  return stream;
+}
 
 // Node's String.prototype.split() obtains an additional empty last element,
 // as in:
@@ -69,7 +91,7 @@ describe('clasp.usage.showUsage()', function() {
     var info_lines = [
     ];
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',
@@ -116,7 +138,7 @@ describe('clasp.usage.showUsage()', function() {
       '',
     ];
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',
@@ -181,7 +203,7 @@ describe('clasp.usage.showUsage()', function() {
       '',
     ];
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',
@@ -237,7 +259,7 @@ describe('clasp.usage.showVersion()', function() {
 
   it('works with program-name and string version', function() {
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',
@@ -254,7 +276,7 @@ describe('clasp.usage.showVersion()', function() {
 
   it('works with program-name, version-prefix and string version', function() {
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',
@@ -272,7 +294,7 @@ describe('clasp.usage.showVersion()', function() {
 
   it('works with program-name and array-of-numbers version', function() {
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',
@@ -289,7 +311,7 @@ describe('clasp.usage.showVersion()', function() {
 
   it('works with program-name, version-prefix and array-of-strings version', function() {
 
-    var stm = new mstreams.WritableStream();
+    var stm = _createWritableStream();
     var args = {
 
       program_name: 'myprog',

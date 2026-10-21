@@ -1,4 +1,4 @@
-# CLASP.js Example - **show_usage_and_version** <!-- omit in toc -->
+# CLASP.js - Example - **show_usage_and_version** <!-- omit in toc -->
 
 ## Summary
 
@@ -38,13 +38,13 @@ const info_lines = [
   '',
 ];
 
-// Specify aliases, parse, and checking standard flags
+// Specify specifications, parse, and checking standard flags
 
 const flag_Debug        = clasp.specifications.Flag('--debug', { alias: '-d', help: 'runs in Debug mode' });
 const option_Verbosity  = clasp.specifications.Option('--verbosity', { alias: '-v', help: 'specifies the verbosity', values: [ 'terse', 'quiet', 'silent', 'chatty' ]});
 const flag_Chatty       = clasp.specifications.Flag('--verbosity=chatty', { alias: '-c' });
 
-const aliases = [
+const specifications = [
 
   flag_Debug,
   option_Verbosity,
@@ -55,11 +55,11 @@ const aliases = [
 ];
 
 
-var args = clasp.api.parse(process.argv, aliases);
+var args = clasp.api.parse(process.argv, specifications);
 
 if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
-  clasp.usage.showUsage(aliases, {
+  clasp.usage.showUsage(specifications, {
 
     version: ProgramVersion,
     info_lines: info_lines,
@@ -107,13 +107,13 @@ if (null != (unused = args.getFirstUnusedFlagOrOption())) {
 If executed with no arguments
 
 ```
-    node examples/flag_and_option_specifications.js
+node examples/flag_and_option_specifications.js
 ```
 
 or (in a Unix shell):
 
 ```
-    ./examples/flag_and_option_specifications.js
+./examples/flag_and_option_specifications.js
 ```
 
 it gives the output:
@@ -126,7 +126,7 @@ it gives the output:
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_specifications.js --help
+node examples/flag_and_option_specifications.js --help
 ```
 
 it gives the output:
@@ -164,7 +164,7 @@ flags/options:
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_specifications.js --debug --verbosity=silent
+node examples/flag_and_option_specifications.js --debug --verbosity=silent
 ```
 
 it gives the output:
@@ -179,7 +179,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_specifications.js -v silent -d
+node examples/flag_and_option_specifications.js -v silent -d
 ```
 
 it gives the (same) output:
@@ -194,7 +194,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_specifications.js -c -d
+node examples/flag_and_option_specifications.js -c -d
 ```
 
 it gives the output:
@@ -209,7 +209,7 @@ Debug mode is specified
 If executed with the arguments
 
 ```
-    node examples/flag_and_option_specifications.js -dc
+node examples/flag_and_option_specifications.js -dc
 ```
 
 it gives the (same) output:

@@ -37,20 +37,20 @@ const info_lines = [
   '',
 ];
 
-// Specify aliases, parse, and checking standard flags
+// Specify specifications, parse, and checking standard flags
 
-const aliases = [
+const specifications = [
 
   clasp.specifications.HELP_FLAG,
   clasp.specifications.VERSION_FLAG,
 ];
 
 
-var args = clasp.api.parse(process.argv, aliases);
+var args = clasp.api.parse(process.argv, specifications);
 
 if (args.flagIsSpecified(clasp.specifications.HELP_FLAG)) {
 
-  clasp.usage.showUsage(aliases, {
+  clasp.usage.showUsage(specifications, {
 
     version: ProgramVersion,
     info_lines: info_lines,
